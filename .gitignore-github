@@ -1,0 +1,169 @@
+# Custom Files
+all-env.env
+**/all-env.env
+all-env-keys.env
+**/all-env-keys.env
+**/*instructor*
+*instructor*
+**/*assessment*
+**/*.xlsx
+*assessment*
+**/*Finance*
+**/*.pyc
+**/*.pptx
+Recycled/*
+**/Recycled/*
+**/Future/*
+Future/*
+*Optional*
+**/*Optional*
+*Skip*
+**/*Skip*
+*Pending*
+**/*Pending*
+
+# Debug and Build Files
+**/Debug
+**/debug
+**/Bin
+**/bin
+**/*.exe
+**Extra**
+**/**Extra**
+
+# Terraform Files
+.terraform
+*.tfstate
+*.tfstate.backup
+**/.terraform*
+**/.terraform
+**/.terraform.lock.hcl
+**/*.tfstate
+
+# Visual Studio Files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Build Artifacts
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio Cache
+.vs/
+Generated\ Files/
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+nuget.config
+
+# Node Modules
+node_modules/
+
+# Python Files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.whl
+*.egg
+*.eggs
+*.manifest
+*.spec
+
+# Python Virtual Environment
+venv/
+.env/
+.envrc
+.env.backup
+**/.env
+**/.venv
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Django Files
+*.log
+local_settings.py
+db.sqlite3
+**/__pycache__/
+**/*.pyc
+media/
+staticfiles/
+
+# Flask Files
+instance/
+*.pid
+
+# Machine Learning Files
+*.model
+*.h5
+*.ckpt
+
+# IDE and Editor Files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.idea/
+*.sln.iml
+
+# Azure Files
+csx/
+*.build.csdef
+*.azurePubxml
+PublishScripts/
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+# Backup and Migration
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+ServiceFabricBackup/
+*.rptproj.bak
+MigrationBackup/
+
+# Miscellaneous
+*.log
+*.tmp
+*.tlog
+*.cache
+*.tmp_proj
+*.bak
+.history/
+.mfractor/
+.localhistory/
+*.nvuser
