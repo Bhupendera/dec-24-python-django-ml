@@ -1,7 +1,0 @@
-# Commands to set up the project
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-flask run
-# To deactivate the virtual environment
-deactivate

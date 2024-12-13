@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  title: Employee Management API
+  description: API for managing employees
+  version: "1.0.0"
+paths:
+  /login:
+    post:
+      summary: Generate a JWT token for authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Username of the user
+                password:
+                  type: string
+                  description: Password of the user
+      responses:
+        200:
+          description: Token generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    description: The generated JWT token
+        401:
+          description: Invalid credentials
+  /employees:
+    get:
+      summary: Retrieve all employees
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: List of employees
+  /employee:
+    post:
+      summary: Create a new employee
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                position:
+                  type: string
+                department:
+                  type: string
+      responses:
+        201:
+          description: Employee created
+  /employee/{id}:
+    get:
+      summary: Retrieve an employee by ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Employee details
+        404:
+          description: Employee not found
+    put:
+      summary: Update an employee by ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                position:
+                  type: string
+                department:
+                  type: string
+      responses:
+        200:
+          description: Employee updated
+    delete:
+      summary: Delete an employee by ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Employee deleted
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
