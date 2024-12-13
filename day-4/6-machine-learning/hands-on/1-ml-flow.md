@@ -1,10 +1,10 @@
 ## Pre-requisites
 
 ```
-pip install numpy
-pip install pandas
-pip install matplotlib
-pip install scikit-learn
+!pip install numpy
+!pip install pandas
+!pip install matplotlib
+!pip install scikit-learn
 ```
 
 ### Step 1: Data Preparation
@@ -53,16 +53,14 @@ Train the model:
 
 ---
 
-### Step 4: Evaluating the Model
+### Step 4: Predict
+```
+import pandas as pd
 
-1. Evaluate the model's performance using accuracy, precision, and recall.
-2. Generate predictions and calculate metrics:
-   ```python
-   from sklearn.metrics import accuracy_score, classification_report
+# Example data point as a DataFrame
+input_data = pd.DataFrame([[5.1, 3.5, 1.4, 0.2]], columns=["sepal_length", "sepal_width", "petal_length", "petal_width"])
 
-   # Predict
-   y_pred = model.predict(X_test)
-
-   # Evaluate
-   print("Accuracy:", accuracy_score(y_test, y_pred))
-   ```
+# Predict class
+prediction = model.predict(input_data)
+print("Predicted class:", prediction)
+```
