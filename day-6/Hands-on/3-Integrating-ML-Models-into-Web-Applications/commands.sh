@@ -11,9 +11,7 @@ venv\Scripts\activate
 python test_api.py
 
 ## Setup django project
-django-admin startproject TitanicPredictor
 cd TitanicPredictor
-python manage.py startapp passengers
 python manage.py makemigrations
 python manage.py migrate
 python manage.py makemigrations passengers

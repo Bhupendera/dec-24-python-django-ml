@@ -1,0 +1,4 @@
+model.pkl
+venv/
+training-data/*
+test-data/*
