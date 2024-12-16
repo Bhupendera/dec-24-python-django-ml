@@ -68,4 +68,5 @@ if __name__ == "__main__":
     log_to_file()
 
     print("\nRunning: log_to_screen_and_file")
+
     log_to_screen_and_file()
