@@ -1,9 +1,9 @@
-python -m venv venv
-venv/Scripts/activate
+python -m venv myvenv
+myvenv\Scripts\activate
 
 pip install -r requirements.txt
 
-python train-model.py
+python train_model.py
 
 python app.py
 
