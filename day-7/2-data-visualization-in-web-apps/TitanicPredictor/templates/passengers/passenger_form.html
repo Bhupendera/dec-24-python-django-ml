@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Passenger{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-primary">Add Passenger</h1>
+    <form method="POST" class="shadow p-4 rounded bg-light">
+        {% csrf_token %}
+        
+        <!-- Passenger Class Dropdown -->
+        <div class="mb-3">
+            {{ form.Pclass.label_tag }}
+            {{ form.Pclass }}
+        </div>
+
+        <!-- Age Field -->
+        <div class="mb-3">
+            {{ form.Age.label_tag }}
+            {{ form.Age }}
+            <small class="form-text text-muted">Example: 29.5</small>
+        </div>
+
+        <!-- Siblings/Spouses Field -->
+        <div class="mb-3">
+            {{ form.SibSp.label_tag }}
+            {{ form.SibSp }}
+            <small class="form-text text-muted">Example: 0 for no siblings/spouses, 1 for one sibling/spouse.</small>
+        </div>
+
+        <!-- Parents/Children Field -->
+        <div class="mb-3">
+            {{ form.Parch.label_tag }}
+            {{ form.Parch }}
+            <small class="form-text text-muted">Example: 0 for no parents/children, 2 for two parents/children.</small>
+        </div>
+
+        <!-- Fare Field -->
+        <div class="mb-3">
+            {{ form.Fare.label_tag }}
+            {{ form.Fare }}
+            <small class="form-text text-muted">Example: 75.50</small>
+        </div>
+
+        <!-- Gender Dropdown -->
+        <div class="mb-3">
+            {{ form.Sex_male.label_tag }}
+            {{ form.Sex_male }}
+            <small class="form-text text-muted">Select 1 for Male, 0 for Female.</small>
+        </div>
+
+        <!-- Embarked Q Dropdown -->
+        <div class="mb-3">
+            {{ form.Embarked_Q.label_tag }}
+            {{ form.Embarked_Q }}
+            <small class="form-text text-muted">Select 1 for Yes (Embarked at Q), 0 for No.</small>
+        </div>
+
+        <!-- Embarked S Dropdown -->
+        <div class="mb-3">
+            {{ form.Embarked_S.label_tag }}
+            {{ form.Embarked_S }}
+            <small class="form-text text-muted">Select 1 for Yes (Embarked at S), 0 for No.</small>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-flex gap-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{% url 'passenger_list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

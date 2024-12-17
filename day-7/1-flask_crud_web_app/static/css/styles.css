@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: yellow; /* Changed background color to yellow */
+    color: red; /* Changed text color to red */
+}
+header {
+    background-color: blue; /* Changed header background color to blue */
+    color: white; /* Changed header text color to white */
+    padding: 1em;
+    text-align: center;
+}
+header nav a {
+    color: white; /* Changed nav link color to white */
+    margin: 0 1em;
+    text-decoration: none;
+}
+header nav a:hover {
+    text-decoration: underline;
+}
+main {
+    padding: 2em;
+    background-color: yellow; /* Changed main background color to yellow */
+    color: red; /* Changed main text color to red */
+}

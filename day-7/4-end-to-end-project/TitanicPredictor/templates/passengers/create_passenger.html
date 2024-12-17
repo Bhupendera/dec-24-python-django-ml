@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create New Passenger
+{% endblock %}
+
+{% block content %}
+<h1>Create New Passenger</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="{% url 'passenger_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,9 @@
+Flask
+numpy
+scikit-learn
+requests
+pandas
+Django
+matplotlib
+seaborn
+plotly

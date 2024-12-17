@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-primary">Prediction Dashboard</h1>
+
+    <!-- Graph 1: Survival Distribution -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-dark text-white">Survival Prediction Distribution</div>
+        <div class="card-body">
+            <div id="survival-chart"></div>
+        </div>
+    </div>
+
+    <!-- Graph 2: Fare Distribution -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">Fare Distribution</div>
+        <div class="card-body">
+            <div id="fare-chart"></div>
+        </div>
+    </div>
+
+    <!-- Graph 3: Age Distribution by Class -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-success text-white">Fare by Passenger Class</div>
+        <div class="card-body">
+            <div id="age-chart"></div>
+        </div>
+    </div>
+
+    <!-- Back to Passenger List -->
+    <div class="text-end mt-3">
+        <a href="{% url 'passenger_list' %}" class="btn btn-secondary">Back to Passenger List</a>
+    </div>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<!-- Render Graphs -->
+<script>
+    // Graph 1: Survival Prediction Distribution
+    const survivalData = JSON.parse('{{ survival_chart|escapejs }}');
+    console.log(survivalData.data);
+    Plotly.newPlot('survival-chart', survivalData.data, survivalData.layout);
+
+    // Graph 2: Fare Distribution
+    const fareData = JSON.parse('{{ fare_chart|escapejs }}');
+    Plotly.newPlot('fare-chart', fareData.data, fareData.layout);
+
+    // Graph 3: Fare by Passenger Class
+    const ageData = JSON.parse('{{ age_chart|escapejs }}');
+    Plotly.newPlot('age-chart', ageData.data, ageData.layout);
+</script>
+{% endblock %}

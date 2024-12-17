@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+Passenger List
+{% endblock %}
+
+{% block content %}
+<h1>Passenger List</h1>
+
+<!-- Button to create a new passenger -->
+<a href="{% url 'create_passenger' %}" class="btn btn-success mb-3">Create New Passenger</a>
+
+<!-- Add Dashboard Link -->
+<a href="{% url 'dashboard' %}" class="btn btn-primary mb-3">View Dashboard</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Class</th>
+            <th>Age</th>
+            <th>Siblings/Spouses</th>
+            <th>Parents/Children</th>
+            <th>Fare</th>
+            <th>Sex</th>
+            <th>Embarked (Q)</th>
+            <th>Embarked (S)</th>
+            <th>Prediction</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for passenger in passengers %}
+        <tr>
+            <td>{{ passenger.id }}</td>
+            <td>{{ passenger.Pclass }}</td>
+            <td>{{ passenger.Age }}</td>
+            <td>{{ passenger.SibSp }}</td>
+            <td>{{ passenger.Parch }}</td>
+            <td>{{ passenger.Fare }}</td>
+            <td>{{ passenger.gender }}</td>
+            <td>{{ passenger.embarked_q }}</td>
+            <td>{{ passenger.embarked_s }}</td>
+            <td>{{ passenger.prediction }}</td>
+            <td>
+                <a href="{% url 'passenger_detail' passenger.id %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'passenger_delete' passenger.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

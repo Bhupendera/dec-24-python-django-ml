@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Passenger List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-primary">Passenger List</h1>
+
+    <!-- Visualization Section -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h4>Survival Prediction Distribution</h4>
+        </div>
+        <div class="card-body text-center">
+            {% if graph %}
+                <img src="{{ graph }}" alt="Survival Prediction Distribution" class="img-fluid rounded">
+            {% else %}
+                <p class="text-muted">No graph available at the moment.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Passenger Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Class</th>
+                    <th>Age</th>
+                    <th>Siblings/Spouses</th>
+                    <th>Parents/Children</th>
+                    <th>Fare</th>
+                    <th>Sex (Male/Female)</th>
+                    <th>Embarked (Q)</th>
+                    <th>Embarked (S)</th>
+                    <th>Prediction</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for passenger in passengers %}
+                <tr>
+                    <td>{{ passenger.id }}</td>
+                    <td>{{ passenger.Pclass }}</td>
+                    <td>{{ passenger.Age }}</td>
+                    <td>{{ passenger.SibSp }}</td>
+                    <td>{{ passenger.Parch }}</td>
+                    <td>{{ passenger.Fare }}</td>
+                    <td>{{ passenger.gender }}</td>
+                    <td>{{ passenger.embarked_q_status }}</td>
+                    <td>{{ passenger.embarked_s_status }}</td>
+                    <td>
+                        {% if passenger.prediction == "Survived" %}
+                            <span class="badge bg-success">Survived</span>
+                        {% else %}
+                            <span class="badge bg-danger">Did Not Survive</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'passenger_detail' passenger.id %}" class="btn btn-info btn-sm">View</a>
+                        <a href="{% url 'passenger_delete' passenger.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add New Passenger Button -->
+    <div class="mt-3 text-end">
+        <a href="{% url 'passenger_create' %}" class="btn btn-primary">Add New Passenger</a>
+    </div>
+</div>
+{% endblock %}

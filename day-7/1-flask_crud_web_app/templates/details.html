@@ -1,0 +1,18 @@
+{% block content %}
+<div class="card">
+    <h2>Employee Details</h2>
+    <p><strong>ID:</strong> {{ employee.id }}</p>
+    <p><strong>Name:</strong> {{ employee.name }}</p>
+    <p><strong>Email:</strong> {{ employee.email }}</p>
+    <p><strong>Phone:</strong> {{ employee.phone }}</p>
+    <p><strong>Designation:</strong> {{ employee.designation }}</p>
+    <p><strong>Salary:</strong> {{ employee.salary }}</p>
+    <p><strong>Age:</strong> {{ employee.age }}</p>
+    <p><strong>Joining Date:</strong> {{ employee.joining_date }}</p>
+</div>
+<a href="{{ url_for('edit_employee', id=employee.id) }}" class="button">Edit</a>
+<form action="{{ url_for('delete_employee', id=employee.id) }}" method="post" style="display:inline;">
+    <button type="submit" class="button delete delete-button">Delete</button>
+</form>
+<a href="{{ url_for('home') }}" class="button">Back to Home</a>
+{% endblock %}

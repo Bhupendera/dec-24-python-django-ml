@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Passenger Detail{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-primary">Passenger Detail</h1>
+
+    <!-- Passenger Information -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h4>Passenger Information</h4>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>ID:</strong> {{ passenger.id }}</li>
+                <li class="list-group-item"><strong>Class:</strong> {{ passenger.Pclass }}</li>
+                <li class="list-group-item"><strong>Age:</strong> {{ passenger.Age }}</li>
+                <li class="list-group-item"><strong>Siblings/Spouses:</strong> {{ passenger.SibSp }}</li>
+                <li class="list-group-item"><strong>Parents/Children:</strong> {{ passenger.Parch }}</li>
+                <li class="list-group-item"><strong>Fare:</strong> {{ passenger.Fare }}</li>
+                <li class="list-group-item"><strong>Sex:</strong> {{ passenger.Sex }}</li>
+                <li class="list-group-item"><strong>Embarked (Q):</strong> {{ passenger.Embarked_Q }}</li>
+                <li class="list-group-item"><strong>Embarked (S):</strong> {{ passenger.Embarked_S }}</li>
+                <li class="list-group-item"><strong>Prediction:</strong> {{ passenger.prediction }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Fare Comparison Graph -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h4>Fare Comparison</h4>
+        </div>
+        <div class="card-body text-center">
+            {% if fare_graph %}
+                <img src="{{ fare_graph }}" alt="Fare Comparison" class="img-fluid rounded">
+            {% else %}
+                <p class="text-muted">No graph available at the moment.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="mt-3 text-end">
+        <a href="{% url 'passenger_list' %}" class="btn btn-primary">Back to Passenger List</a>
+    </div>
+</div>
+{% endblock %}
