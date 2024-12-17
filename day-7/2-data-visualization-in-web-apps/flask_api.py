@@ -3,7 +3,6 @@ import pickle
 import numpy as np
 import logging
 import traceback
-from train_model import FlowerClassifier
 app = Flask(__name__)
 
 # Configure logging
